@@ -56,11 +56,11 @@ const Form = (props) => {
       { 
         dict.map((values) => {
           return (
-          <div className="InputCont">      
-          <div>
+          <div className="InputCont" key={`${values.message}`}>      
+          <div key={`${values.value}`}>
             {`${values.message}: `}
           </div>
-          <input 
+          <input key={`${values.rut}`}
             value={values.value}
             onChange={values.handle}
             placeholder={`Escribe tu ${values.message}`}
