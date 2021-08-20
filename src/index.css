@@ -13,6 +13,8 @@ code {
 }
 
 .container {
+  display: flex;
+  justify-content: center;
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
@@ -20,4 +22,26 @@ code {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+}
+
+.InputCont {
+  display: flex;
+  flex-direction: row;
+  height: 2em;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.InputCont div {
+  flex: 1;
+}
+
+.InputCont input {
+  flex: 3;
 }

@@ -9,7 +9,7 @@ const Form = (props) => {
     const handlename = (event) => {
         setName(event.target.value);
     };
-
+ 
     const handlesurname = (event) => {
         setSurname(event.target.value);
     };
@@ -33,28 +33,43 @@ const Form = (props) => {
         console.log('Saludos! Que te vaya bien!')
       };
 
+    const dict = [{
+      value: givenname,
+      handle: handlename,
+      message: "Nombre"
+    }, {
+      value: surname,
+      handle: handlesurname,
+      message: "Apellido"
+    }, {
+      value: rut,
+      handle: handlerut,
+      message: "Rut"
+    }, {
+      value: email,
+      handle: handleemail,
+      message: "Email"
+    }];
+
     return(
     <div className="Form">
-      <textarea
-        value={givenname}
-        onChange={handlename}
-        placeholder="Escribe tu nombre"
-      />
-      <textarea
-        value={surname}
-        onChange={handlesurname}
-        placeholder="Escribe tu apellido"
-      />
-      <textarea
-        value={rut}
-        onChange={handlerut}
-        placeholder="Escribe tu rut"
-      />
-      <textarea
-        value={email}
-        onChange={handleemail}
-        placeholder="Escribe tu email"
-      />
+      { 
+        dict.map((values) => {
+          return (
+          <div className="InputCont">      
+          <div>
+            {`${values.message}: `}
+          </div>
+          <input 
+            value={values.value}
+            onChange={values.handle}
+            placeholder={`Escribe tu ${values.message}`}
+          />
+          </div>
+          );
+        })
+      }
+      
       <button onClick={() => {submit(givenname, surname, rut, email)}} className="submit-button">
         Submit
       </button>
